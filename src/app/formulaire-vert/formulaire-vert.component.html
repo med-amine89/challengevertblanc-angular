@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+          <label for="name">Nom :</label>
+          <input type="text" [(ngModel)]="name" [ngClass]="styleClass" id="name" placeholder="Entrez votre nom">
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Prenom :</label>
+            <input type="text" [(ngModel)]="lastname" [ngClass]="styleClass" id="lastname" placeholder="Entrez votre prenom">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">E-mail :</label>
+          <input type="text" [(ngModel)]="email" [ngClass]="styleClass" id="email" placeholder="Entrez votre e-mail">
+        </div>
+    
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" [(ngModel)]="password"  [ngClass]="styleClass" id="password" placeholder="Entrez votre mot de passe">
+        </div>
+        <button type="button" class="btn btn-success mb-2 ml-2" (click)="onclick_envoyer()">Envoyer</button>
+        <button type="button" class="btn btn-primary mb-2 ml-2" (click)="onclick_annuler()">Annuler</button>
+        <button type="button" class="btn btn-primary mb-2 ml-2" (click)="onClick_ajouter()">ajouter</button>
+    </div>
+
+<div class="col-8 mt-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Mail</th>
+          <th>Mot de passe</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Validation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of tab; let index = index" class="table-active">
+          <td>{{key.email}}</td>
+          <td>{{key.lastName}}</td>
+          <td>{{key.name}}</td>
+          <td>{{key.password}}</td>
+          <td><button *ngIf="key.password.length>10" type="button" class="btn btn-warning mb-2" (click)="supp(index)">supprimer</button></td>
+        </tr>
+      </tbody>
+    </table>
+       
+</div>
+</div>
